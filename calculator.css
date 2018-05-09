@@ -1,0 +1,104 @@
+#container{
+	border: 1px solid;
+	height: 450px;
+	width: 450px;
+	top: 74px;
+	left: 446px;
+	position: relative;
+	background-color: #5bc0de
+}
+#one {
+	position: absolute;
+top: 349px;
+left: 112px;
+}
+#two {
+	position: absolute;
+top: 349px;
+left: 224px;
+}
+#three{
+	position: absolute;
+top: 253px;
+left: 0px;
+}
+#four{
+	position: absolute;
+top: 253px;
+left: 112px;
+}
+#five{
+	position: absolute;
+top: 253px;
+left: 224px;
+}
+#six{
+	position: absolute;
+top: 154px;
+left: 0px;
+}
+#seven{
+	position: absolute;
+top: 154px;
+left: 112px;
+}
+#eight{
+	position: absolute;
+top: 154px;
+left: 224px;
+}
+#nine{
+	position: absolute;
+top: 55px;
+left: 0px;
+}
+#zero{
+	position: absolute;
+top: 349px;
+left: 0px;
+}
+#plus{
+	position: absolute;
+top: 349px;
+left: 336px;
+}
+#minus{
+	position: absolute;
+top: 253px;
+left: 336px;
+}
+#multiply{
+	position: absolute;
+top: 154px;
+left: 336px;
+}
+#divide{
+	position: absolute;
+top: 55px;
+left: 336px;
+}
+#equal{
+	position: absolute;
+top: 55px;
+left: 112px;
+}
+.btn{
+	height: 99px;
+	width: 112px;
+	border: 0px solid transparent;
+	
+}
+#display{
+	border: 1px solid;
+	position: absolute;
+	width: 450px;
+	height: 55px;
+}
+#displayNum{
+	float: right;
+}
+#clear{
+	position: absolute;
+	top: 55px;
+	left: 224px
+}
