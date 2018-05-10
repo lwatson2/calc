@@ -1,3 +1,5 @@
+let numb = []
+let oper1 = []
 clear = document.getElementById("clear")
 equal = document.getElementById('equal')
 displayNum = document.getElementById('displayNum')
@@ -15,21 +17,35 @@ for(let i=0; i < op.length; i++)
 equal.addEventListener('click', operate)
 clear.addEventListener('click', clears)
 function add(val){
+	
+	let c = val.reduce((sum, total) => +val[0] + +val[1])
+	let d = c.toString()
+	val.splice(0, 2)
+	val.unshift(d)
+		
 	console.log(val)
-	let c =  val.reduce((sum, total) => +sum + +total, 0)
-	displayNum.innerHTML = c
+	//console.log(numb)
 }
 function subtract(val){
-	let c = val.reduce((sum, total) =>  +sum - +total)
-	displayNum.innerHTML = c 
+	let c = val.reduce((sum, total) =>  +val[0] - +val[1])
+	let d = c.toString()
+	val.splice(0, 2)
+	val.unshift(d)
+	console.log(val)
 }
 function multiply(val){
-	let c = val.reduce((sum, total) =>  +sum * +total)
-	displayNum.innerHTML = c
+	let c = val.reduce((sum, total) =>  +val[0] * +val[1])
+	let d = c.toString()
+	val.splice(0, 2)
+	val.unshift(d)
+	console.log(val)
 }
 function divide(val){
-	let c = val.reduce((sum, total) =>  +sum / +total)
-	displayNum.innerHTML = c 
+	let c = val.reduce((sum, total) =>  +val[0] / +val[1])
+	let d = c.toString()
+	val.splice(0, 2)
+	val.unshift(d) 
+	console.log(val)
 }
 
 
@@ -59,28 +75,47 @@ function clears(){
 function operate(){
 		
 
-		let numb = displayNum.innerHTML
+		let numb = displayNum.innerHTML.split(/[+*/\-]/g)
 		//.match(/\d/g)
 		
 		console.log(numb)
-		let oper =displayNum.innerHTML
+		
+
 		//.match(/[+*\/-]/g)
-		console.log(oper)
-		if(displayNum.innerHTML.match(/[*]/g) ){
-			newArray = numb.split('*')
-			multiply(newArray)
+		
+		let oper1 = displayNum.innerHTML.match(/[+*\/-]/g)
+		console.log(oper1)
+		for(let i = 0; i < oper1.length ; i++){
+			if(oper1.includes('*')){
+				multiply(numb)
+				let index = oper1.indexOf('*')
+				oper1.splice(index, 1)
+				console.log(oper1)
 			}
-		if(displayNum.innerHTML.match(/[/]/g)){
-			newArray = numb.split('/')
-			divide(newArray)
+			if(oper1.includes('/')){
+				divide(numb)
+				let index = oper1.indexOf('/')
+				oper1.splice(index, 1)
+				console.log(oper1)
+			}
+			if(oper1.includes("+")){
+				add(numb)
+				let index = oper1.indexOf("+")
+				oper1.splice(index, 1)
+				console.log(oper1)
+
+			}
+			if(oper1.includes('-')){
+				subtract(numb)
+				let index = oper1.indexOf('-')
+				oper1.splice(index, 1)
+				console.log(oper1)
+			}
+
 		}
-		if(displayNum.innerHTML.match(/[+]/g)){
-			newArray = numb.split('+')
-			add(newArray)
+		display(oper1, numb)
+	}
+		function display(val,numb){
+			if(  val.length === 0)
+				displayNum.innerHTML = numb
 		}
-		if(displayNum.innerHTML.match(/[-]/g)){
-			newArray = numb.split('-')
-			subtract(newArray)
-		}
-}
-                                  
